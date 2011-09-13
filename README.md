@@ -19,9 +19,10 @@ Features/behavior:
 Author
 ------
 
-**Ben Dalziel**
+**Ben Dalziel @ Sly Trunk**
 
 + http://bendalziel.com/
++ http://slytrunk.com/
 
 Demo
 ----
