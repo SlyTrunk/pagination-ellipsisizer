@@ -19,12 +19,32 @@ Features/behavior:
 Usage
 -----
 
-1. Put your navigation items in an array. Make sure each item is keyed into the array using a common prefix and integer index, zero based. E.g. my prefix could be "navItem", and my keys would look like "navItem0", "navItem1" etc.
+* Put your navigation items in an array. Make sure each item is keyed into the array using a common prefix and integer index, zero based. E.g. my prefix could be "navItem", and my keys would look like "navItem0", "navItem1" etc.
 This is necessary to differentiate between nav items that we should consider, and those we shouldn't such as "Previous", "Next" buttons. The indices need to be contiguous, and complete, starting at 0.
 
-2. Call ellipsisize with your array. Specify the "selected" item, that is the key of the item whose page we're on. Also specify the number of visible items you want. You can ask for JS annotations, and also overide the key prefix we mentioned earlier.
+An example of correctly keyed items, mixed with items that we do not wish to consider for the purposes of ellipsisizing.
 
-3. Handle the ellipsis annotations as you render your items. You'll need to style the "ellipsis" and "hidden" items.
+``` html
+$items = array(array('title' => "Previous")
+               "page-0" => array('title' => "Page 1"),
+               "page-1" => array('title' => "Page 2"),
+               "page-2" => array('title' => "Page 3"),
+               "page-3" => array('title' => "Page 4"),
+               "page-4" => array('title' => "Page 5"),
+               "page-5" => array('title' => "Page 6"),
+               array('title' => "Next")
+               );
+```
+
+* Call ellipsisize with your array. Specify the "selected" item, that is the key of the item whose page we're on. Also specify the number of visible items you want. You can ask for JS annotations, and also overide the key prefix we mentioned earlier.
+
+Example call to ellipsisize: We're on "Page 4", whose key is "page-3. We want 4 visible items, we don't want JS annotations, and our key prefix is "page-".
+
+``` html
+$items = Ellipsisizer::ellipsisize("page-3", $items, 4, false, "page-");
+```
+
+* Handle the ellipsis annotations as you render your items. You'll need to style the "ellipsis" and "hidden" items.
 
 
 Author
