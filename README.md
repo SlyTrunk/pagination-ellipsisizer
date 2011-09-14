@@ -16,6 +16,38 @@ Features/behavior:
 * The remaining visible items will surround the selected item, favoring looking forwards
 * Optional annotations to enable simple client side (JS) ellipsis manipulation
 
+``` html
+15 items, 7 items visible, selected item in square brackets:
+
+[1] 2 3 4 5 6 ... 15
+
+1 2 3 [4] 5 6 ... 15
+
+1 ... 3 4 [5] 6 7 ... 15
+
+1 ... 5 6 [7] 8 9 ... 15
+
+1 ... 9 10 [11] 12 13 ... 15
+
+1 ... 10 11 12 13 14 [15]
+```
+
+``` html
+15 items, 6 items visible, selected item in square brackets:
+
+[1] 2 3 4 5 ... 15
+
+1 ... 3 [4] 5 6 ... 15
+
+1 ... 4 [5] 6 7 ... 15
+
+1 ... 6 [7] 8 9 ... 15
+
+1 ... 10 [11] 12 13 ... 15
+
+1 ... 11 12 13 14 [15]
+```
+
 Usage
 -----
 
@@ -46,6 +78,10 @@ $items = Ellipsisizer::ellipsisize("page-3", $items, 4, false, "page-");
 
 * Handle the ellipsis annotations as you render your items. You'll need to style the "ellipsis" and "hidden" items.
 
+More Pagination Ellipsis Resources
+----------------------------------
+
+* Thoughts on pagination design: http://v1.wolfslittlestore.be/in-search-of-the-ultimate-pagination
 
 Author
 ------
