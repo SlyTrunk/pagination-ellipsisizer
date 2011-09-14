@@ -3,10 +3,10 @@
 class Ellipsisizer {
 
     public static function ellipsisize($selected, 
-									   $listItems, 
-									   $maxItemCount, 
-									   $jsEnabled = false, 
-									   $itemKeyPrefix = "page-") {
+                                       $listItems, 
+                                       $maxItemCount, 
+                                       $jsEnabled = false, 
+                                       $itemKeyPrefix = "page-") {
 
         $pageCount = 0;
         foreach ($listItems as $key => $listItem) {
@@ -67,8 +67,8 @@ class Ellipsisizer {
      * @return  boolean
      */
     protected static function isItemVisible ($itemIndex, $lastItemIndex, 
-											 $selectedWindowLowerBoundIndex, 
-											 $selectedWindowUpperBoundIndex) {
+                                             $selectedWindowLowerBoundIndex, 
+                                             $selectedWindowUpperBoundIndex) {
 
         if ($itemIndex == 0 || $itemIndex == $lastItemIndex) {
             // First or last item
