@@ -6,15 +6,26 @@ A PHP utility to annotate an ordered list (think list of page links/pagination) 
 Overview
 ----
 
-We commonly need to add ellipses to pagination, and I couldn't find a nice utility. So I made one.
+We commonly need to add ellipses to the navigation of paginated data. I couldn't find a nice utility, so I made one.
 
 Features/behavior:
 
 * The number of visible items is customizable
-* The first item is always visible (think page 1)
+* The first item is always visible
 * The last item is always visible
 * The remaining visible items will surround the selected item, favoring looking forwards
 * Optional annotations to enable simple client side (JS) ellipsis manipulation
+
+Usage
+-----
+
+1. Put your navigation items in an array. Make sure each item is keyed into the array using a common prefix and integer index, zero based. E.g. my prefix could be "navItem", and my keys would look like "navItem0", "navItem1" etc.
+This is necessary to differentiate between nav items that we should consider, and those we shouldn't such as "Previous", "Next" buttons. The indices need to be contiguous, and complete, starting at 0.
+
+2. Call ellipsisize with your array. Specify the "selected" item, that is the key of the item whose page we're on. Also specify the number of visible items you want. You can ask for JS annotations, and also overide the key prefix we mentioned earlier.
+
+3. Handle the ellipsis annotations as you render your items. You'll need to style the "ellipsis" and "hidden" items.
+
 
 Author
 ------
